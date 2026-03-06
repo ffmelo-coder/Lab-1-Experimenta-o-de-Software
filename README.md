@@ -92,6 +92,8 @@ python collect_github_data.py
 - Top 10 linguagens mais usadas
 - Análise detalhada por linguagem (top 5)
 
+![TERMINAL-GIF](imgs/Popular-Repos-TERMINAL.gif)
+
 ### Interface GUI (Gráfica)
 
 Execute no terminal:
@@ -130,7 +132,7 @@ python github_analyzer_gui.py
 - Preserva dados parciais em caso de erro/interrupção
 - Validação de entrada para navegação de páginas
 
-![GUI-Github-Populares](imgs/github_gui.png)
+![GUI-Github-Populares](imgs/github_gui.png) ![GUI-GIF](imgs/Popular-Repos-GUI.gif)
 
 ## Formato de Dados Coletados
 

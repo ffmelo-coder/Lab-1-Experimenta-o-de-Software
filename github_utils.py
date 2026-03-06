@@ -346,6 +346,9 @@ def export_to_csv(all_repos, filename):
             # RQ07
             writer.writerow(["RQ07 - Análise por Linguagem (Top 5)"])
             writer.writerow([])
+
+            # preparar dados para formato tabular
+            lang_data = []
             for lang, count in sorted_languages[:5]:
                 repos_lang = [
                     r
@@ -365,23 +368,44 @@ def export_to_csv(all_repos, filename):
                         for r in repos_lang
                     ]
 
-                    writer.writerow([f"{lang} ({count} repositórios)"])
-                    writer.writerow(["Média PRs", sum(prs) // len(prs)])
-                    writer.writerow(["Mediana PRs", sorted(prs)[len(prs) // 2]])
-                    writer.writerow(["Média Releases", sum(releases) // len(releases)])
-                    writer.writerow(
-                        ["Mediana Releases", sorted(releases)[len(releases) // 2]]
+                    lang_data.append(
+                        {
+                            "lang": lang,
+                            "count": count,
+                            "media_prs": sum(prs) // len(prs),
+                            "mediana_prs": sorted(prs)[len(prs) // 2],
+                            "media_releases": sum(releases) // len(releases),
+                            "mediana_releases": sorted(releases)[len(releases) // 2],
+                            "media_dias_push": sum(pushes) // len(pushes),
+                            "mediana_dias_push": sorted(pushes)[len(pushes) // 2],
+                        }
                     )
-                    writer.writerow(
-                        ["Média dias desde último push", sum(pushes) // len(pushes)]
-                    )
-                    writer.writerow(
-                        [
-                            "Mediana dias desde último push",
-                            sorted(pushes)[len(pushes) // 2],
-                        ]
-                    )
-                    writer.writerow([])
+
+            # cabeçalho
+            header = [""] + [data["lang"] for data in lang_data]
+            writer.writerow(header)
+
+            # linhas
+            writer.writerow(["Repositórios"] + [data["count"] for data in lang_data])
+            writer.writerow(["Média PRs"] + [data["media_prs"] for data in lang_data])
+            writer.writerow(
+                ["Mediana PRs"] + [data["mediana_prs"] for data in lang_data]
+            )
+            writer.writerow(
+                ["Média Releases"] + [data["media_releases"] for data in lang_data]
+            )
+            writer.writerow(
+                ["Mediana Releases"] + [data["mediana_releases"] for data in lang_data]
+            )
+            writer.writerow(
+                ["Média dias desde último push"]
+                + [data["media_dias_push"] for data in lang_data]
+            )
+            writer.writerow(
+                ["Mediana dias desde último push"]
+                + [data["mediana_dias_push"] for data in lang_data]
+            )
+            writer.writerow([])
 
         return True
 
