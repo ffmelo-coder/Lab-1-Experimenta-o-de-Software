@@ -166,10 +166,6 @@ Este estudo busca responder as seguintes questões de pesquisa :
 
 Total de repositórios analisados: **1000**
 
-Período de coleta: \***\*\_\_\_\*\***
-
-Tempo total de coleta: \***\*\_\_\_\*\***
-
 ### 3.2 Estatísticas Descritivas Gerais
 
 #### RQ01: Idade dos Repositórios
