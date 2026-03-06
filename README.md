@@ -27,6 +27,7 @@ Lab-1-Experimentação-de-Software/
 ├── github_utils.py          # Módulo compartilhado com funções reutilizáveis
 ├── collect_github_data.py   # Interface CLI (linha de comando)
 ├── github_analyzer_gui.py   # Interface gráfica (GUI)
+├── RELATORIO.md             # Relatório de comparação e medição, conforme requisitado da disciplina
 └── README.md                # Este arquivo
 ```
 
