@@ -346,7 +346,9 @@ Projeto acadêmico - PUCMINAS 2026
 ## Autores
 
 Augusto Fuscaldi Cerezo - Queries, funções do utils, code review.
-Filipe Faria Melo - README, GUI, dados e imagens.
+
+Filipe Faria Melo - README, GUI, dados, imagens e code reviews.
+
 Relatório realizado pelos dois membros em conferência.
 
 Desenvolvido para a disciplina de Experimentação de Software
