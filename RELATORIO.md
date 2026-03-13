@@ -428,11 +428,13 @@ Documentação é outlier, uma vez que tem tempos longos para push, quase nunca 
 
 ---
 
-## 5. Conclusão
+### 5. Conclusão
 
-**Resumo**
+**Introdução**
 
 A análise dos 1.000 repositórios mais estrelados do GitHub revelou um conjunto consistente de características que permitem responder às questões de pesquisa propostas e validar a maioria das hipóteses iniciais. Em termos de maturidade, os repositórios são, em média, antigos: a mediana de idade é de 3.062 dias (por volta de 8,4 anos), o que confirma que projetos populares tendem a acumular reputação ao longo de vários anos. Quanto à contribuição externa, observou-se uma mediana de 741 pull requests aceitos por repositório, indicando um nível elevado de colaboração comunitária. Os repositórios também apresentam versionamento significativo: a mediana de releases é 41, acima do valor de comparação de 20 releases. Em relação à manutenção e atividade de desenvolvimento, os projetos são atualizados com muita frequência. A mediana de dias desde o último push é 1 dia, o que confirma uma base de código amplamente ativa.
+
+---
 
 **Linguagens de Programação**
 
@@ -448,15 +450,58 @@ A distribuição por linguagens mostra predominância de:
 
 Observou-se ainda que repositórios categorizados como documentação (N/A) compõem uma fração relevante e têm comportamento diferente dos outros, apresentando poucas releases e maior inatividade. A observação dos objetivos almejados pelo repositório deve ser levada em consideração quando se está fazenod uma análise estatística.
 
+---
+**Resumo**
+
+Por fim, os resultados devem ser interpretados com cautela devido a limitações conhecidas: seleção por estrelas, análise em um único snapshot temporal e categorização por linguagem primária. Ainda assim, os dados fornecem evidências robustas de que repositórios mais estrelados no GitHub tendem a ser projetos consolidados, colaborativos e bem mantidos.
+
+---
 
 ### 5.1 Tomada de Decisão
 
+**Decisões Chave**
+- Popularidade: usar número de estrelas como proxy.
+- Amostra: analisar top 1.000 repositórios.
+- Atualização: medir com pushedAt.
+- Contribuições: contar somente PRs MERGED.
+- Métrica central: usar mediana.
+- Coleta: delay 2s, retry com backoff e salvamento parcial.
+- Ferramenta/saída: Python 3.12 + requests, exportar CSV, GUI com tkinter/threading.
+
+---
+
 ### 5.2 Sugestões Futuras
 
-**Sugestões de Pesquisa**:
+**Dados Adicionais**
 
-### 5.3 Resultado:
+- Contribuidores: coletar total de contribuidores, novos contribuidores por mês e métricas de retenção.
 
-### 5.4 Confronto com Literatura Científica
+- Atividade de commits: commits por período, churn (linhas adicionadas/removidas) e tamanho médio de PR.
 
-## Referências
+- Qualidade de código: cobertura de testes, taxa de sucesso de CI, métricas de lint e complexidade.
+
+**Novos Indicadores**
+
+- Taxa de aceitação de PRs: PRs MERGED / PRs abertos.
+
+- Cadência de releases: tempo médio entre releases, releases por ano, aderência ao versionamento semântico.
+
+- Metodologia e Reprodutibilidade
+
+- Coleta longitudinal: salvar snapshots periódicos e usar coletas agendadas para análises de tendência.
+
+- Exportação rica: além de CSV, exportar JSON com metadados da query e timestamp da coleta.
+
+**Coletas**
+
+- Aumentar o número de repositórios coletados, gerando uma amostra mais precisa e significativa.
+
+- Utilizar métrica parametrizável ao invés de apenas por número de estrelas. Gerando dados com diversos parâmetros.
+
+
+
+
+
+
+
+
