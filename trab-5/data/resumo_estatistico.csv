@@ -1,0 +1,3 @@
+metrica,n_repos,mediana_rest,mediana_graphql,diferenca_pct,teste,estatistica,p_valor,shapiro_p
+RQ1 - Tempo de resposta (ms),100,764.9192999999741,794.4436999998743,-3.8598058644750104,Teste t pareado,-3.429060130459497,0.0008842412695574254,0.8887859125606659
+RQ2 - Tamanho da resposta (bytes),100,6321.0,431.5,93.17354848916311,Wilcoxon signed-rank,0.0,3.896340037647931e-18,0.043484325907444964
